@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Inter } from "next/font/google";
 import "./globals.css";
+import NoiseOverlay from "@/components/NoiseOverlay";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -35,8 +36,10 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${manrope.variable} ${inter.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col font-sans bg-background text-foreground">
+      <body className="min-h-full flex flex-col font-sans bg-background text-foreground" suppressHydrationWarning>
+        <NoiseOverlay />
         {children}
       </body>
     </html>

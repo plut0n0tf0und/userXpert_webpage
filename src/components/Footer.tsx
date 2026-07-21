@@ -1,170 +1,159 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { ArrowRight, MapPin, Mail, Phone, Clock } from "lucide-react";
 import Link from "next/link";
-import { ArrowRight, MessageSquare, Mail, Linkedin } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="bg-slate-50 border-t border-border-custom pt-20 pb-12 scroll-mt-20">
+    <footer className="bg-slate-50 border-t-2 border-slate-200">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12">
         
-        {/* FINAL CTA SECTION (Large Premium Card) */}
-        <div className="bg-white border border-border-custom rounded-card p-8 md:p-12 shadow-sm text-center relative overflow-hidden mb-16 max-w-4xl mx-auto">
-          {/* Subtle decoration accent */}
-          <div className="absolute -top-12 -right-12 w-32 h-32 bg-blue-50 rounded-full blur-2xl pointer-events-none" />
-          <div className="absolute -bottom-12 -left-12 w-32 h-32 bg-indigo-50 rounded-full blur-2xl pointer-events-none" />
-
-          <span className="text-xs font-semibold text-primary-accent bg-blue-50 px-3 py-1.5 rounded-full uppercase tracking-wider mb-4 inline-block">
-            Start Your Project
-          </span>
-          <h2 className="text-2xl md:text-4xl font-extrabold text-primary-text mb-4 tracking-tight text-balance">
-            Ready to Grow Your Business Digitally?
-          </h2>
-          <p className="text-sm md:text-base text-secondary-text font-normal max-w-xl mx-auto mb-8 leading-relaxed text-pretty">
-            Let’s discuss your idea. We will help you outline the scope, select the right platform, and recommend a solution that saves time and boosts your bottom line.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="https://wa.me/919962852828?text=Hi%20UserXpert%2C%20I%20want%20to%20chat%20about%20a%20new%20digital%20solution%20for%20my%20business."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-success-custom text-white px-6 py-3.5 rounded-button text-sm font-bold hover:bg-green-600 transition-colors shadow-xs w-full sm:w-auto cursor-pointer"
-            >
-              <MessageSquare className="w-4 h-4 mr-2" aria-hidden="true" />
-              <span>Chat on WhatsApp</span>
-            </a>
-            <a
-              href="https://wa.me/919962852828?text=Hi%20UserXpert%2C%20I%20would%20like%20to%20request%20a%20free%20consultation%20for%20my%20business."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-primary-accent text-white px-6 py-3.5 rounded-button text-sm font-bold hover:bg-primary-accent-hover transition-colors shadow-xs w-full sm:w-auto cursor-pointer"
-            >
-              <span>Book Free Consultation</span>
-              <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
-            </a>
+        {/* Seamless Final CTA Section */}
+        <div className="py-32 md:py-40 border-b-2 border-slate-200 flex flex-col items-center text-center">
+          <div className="max-w-2xl flex flex-col items-center">
+            <span className="text-lg font-extrabold uppercase tracking-widest text-slate-800 mb-8 block">
+              Let's Build Something Better
+            </span>
+            <h2 className="text-5xl md:text-6xl font-black tracking-tight text-slate-900 mb-8 text-balance">
+              Let's Talk About Your Business.
+            </h2>
+            <p className="text-xl md:text-2xl text-slate-800 font-medium leading-relaxed mb-12 text-balance max-w-xl">
+              Whether you need a website, automation, AI tools, or something custom, we'll help you choose the right solution for your business.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-6 w-full sm:w-auto">
+              <a
+                href="mailto:contact@userxpert.in"
+                className="inline-flex items-center justify-center bg-slate-900 text-white min-h-[64px] px-10 py-4 rounded-full text-xl font-black hover:bg-slate-800 transition-all shadow-md group focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-900 focus-visible:ring-offset-4"
+              >
+                <span>Let's Talk</span>
+                <ArrowRight className="w-6 h-6 ml-3 transition-transform group-hover:translate-x-1.5" />
+              </a>
+              <div className="flex flex-col items-center sm:items-start w-full sm:w-auto">
+                <a
+                  href="https://wa.me/919962852828"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-white border-2 border-slate-200 text-slate-900 min-h-[64px] px-10 py-4 rounded-full text-xl font-black hover:bg-slate-100 transition-all shadow-sm focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-900 focus-visible:ring-offset-4 w-full sm:w-auto"
+                >
+                  WhatsApp
+                </a>
+              </div>
+            </div>
+            
+            <p className="text-lg text-slate-700 font-medium mt-8">
+              No pressure. Just a friendly conversation.
+            </p>
           </div>
         </div>
 
-        {/* FOOTER LINKS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 border-b border-slate-200 pb-12 mb-8">
+        {/* Footer 4-Column Layout */}
+        <div className="py-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-8">
           
-          {/* Logo and Description (Col 1-5) */}
-          <div className="md:col-span-5 flex flex-col items-start">
-            <Link href="#" className="flex items-center space-x-2 mb-4 group">
-              <div className="w-8 h-8 rounded-lg bg-primary-accent flex items-center justify-center text-white font-bold text-base shadow-xs transition-transform group-hover:scale-105">
-                U
-              </div>
-              <span className="text-lg font-extrabold tracking-tight text-primary-text select-none">
-                User<span className="text-primary-accent">Xpert</span>
-              </span>
+          {/* Column 1: About & Contact (Takes up more space) */}
+          <div className="lg:col-span-5 flex flex-col space-y-8 pr-0 lg:pr-12">
+            <Link href="#" className="inline-flex items-center group focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-900 focus-visible:ring-offset-4 rounded self-start">
+              <img 
+                src="/logo.png" 
+                alt="UserXpert" 
+                className="h-10 w-auto transition-transform group-hover:scale-105"
+              />
             </Link>
-            <p className="text-xs text-secondary-text leading-relaxed font-normal mb-6 max-w-sm">
-              UserXpert designs custom websites, automates repetitive business processes, and deploys smart AI customer chatbots. We solve real structural business problems through modern digital platforms.
+            <p className="text-lg md:text-xl text-slate-800 font-medium leading-relaxed max-w-sm">
+              We design websites, build business tools, and automate workflows for companies that want to work smarter—not harder.
             </p>
             
-            {/* Contact details */}
-            <div className="space-y-2">
-              <a 
-                href="https://wa.me/919962852828"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-xs font-semibold text-secondary-text hover:text-primary-text transition-colors"
-              >
-                <span className="w-5 h-5 rounded-md bg-green-50 text-success-custom flex items-center justify-center border border-green-100" aria-hidden="true">
-                  ⚡
-                </span>
-                <span>+91 99628 52828</span>
-              </a>
-              <a 
-                href="mailto:contact@userxpert.in"
-                className="flex items-center gap-2 text-xs font-semibold text-secondary-text hover:text-primary-text transition-colors"
-              >
-                <span className="w-5 h-5 rounded-md bg-blue-50 text-primary-accent flex items-center justify-center border border-blue-100">
-                  <Mail className="w-3.5 h-3.5" aria-hidden="true" />
-                </span>
-                <span>contact@userxpert.in</span>
-              </a>
+            <div className="space-y-6 pt-6">
+              <div className="flex items-start space-x-4 text-slate-800">
+                <MapPin className="w-6 h-6 mt-0.5 flex-shrink-0 text-slate-900" />
+                <span className="text-lg font-medium">Chennai, India</span>
+              </div>
+              <div className="flex items-center space-x-4 text-slate-800 group">
+                <Mail className="w-6 h-6 flex-shrink-0 text-slate-900" />
+                <a href="mailto:contact@userxpert.in" className="text-lg font-bold hover:text-slate-900 transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-900 focus-visible:ring-offset-4 rounded">contact@userxpert.in</a>
+              </div>
+              <div className="flex items-center space-x-4 text-slate-800 group">
+                <Phone className="w-6 h-6 flex-shrink-0 text-slate-900" />
+                <a href="tel:+919962852828" className="text-lg font-bold hover:text-slate-900 transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-900 focus-visible:ring-offset-4 rounded">+91 99628 52828</a>
+              </div>
+              <div className="flex items-start space-x-4 text-slate-800">
+                <Clock className="w-6 h-6 mt-0.5 flex-shrink-0 text-slate-900" />
+                <div className="text-lg font-medium flex flex-col">
+                  <span>Mon – Sat</span>
+                  <span className="text-slate-600">9:00 AM – 6:00 PM</span>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Spacer */}
-          <div className="hidden md:block md:col-span-1" />
+          <div className="hidden lg:block lg:col-span-1"></div>
 
-          {/* Links (Col 7-9) */}
-          <div className="md:col-span-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-primary-text mb-4">
-              Solutions
-            </h4>
-            <ul className="space-y-2.5">
+          {/* Column 2: Services */}
+          <div className="lg:col-span-2 flex flex-col space-y-6">
+            <h4 className="font-extrabold text-slate-900 text-lg md:text-xl tracking-wide uppercase mb-4">Services</h4>
+            <ul className="space-y-5 flex flex-col">
+              {['Websites', 'Automations', 'AI Solutions', 'Tools'].map((item) => (
+                <li key={item}>
+                  <Link href={`#`} className="text-lg font-bold text-slate-700 hover:text-slate-900 transition-colors underline-offset-8 decoration-2 hover:underline focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-900 focus-visible:ring-offset-4 rounded inline-block">
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: Company */}
+          <div className="lg:col-span-2 flex flex-col space-y-6">
+            <h4 className="font-extrabold text-slate-900 text-lg md:text-xl tracking-wide uppercase mb-4">Company</h4>
+            <ul className="space-y-5 flex flex-col">
+              {['Pricing', 'FAQ', 'Contact'].map((item) => (
+                <li key={item}>
+                  <Link href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-lg font-bold text-slate-700 hover:text-slate-900 transition-colors underline-offset-8 decoration-2 hover:underline focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-900 focus-visible:ring-offset-4 rounded inline-block">
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4: Connect */}
+          <div className="lg:col-span-2 flex flex-col space-y-6">
+            <h4 className="font-extrabold text-slate-900 text-lg md:text-xl tracking-wide uppercase mb-4">Connect</h4>
+            <ul className="space-y-5 flex flex-col">
               <li>
-                <a href="#services" className="text-xs font-medium text-secondary-text hover:text-primary-text transition-colors">
-                  Custom Websites
+                <a href="https://wa.me/919962852828" target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-slate-700 hover:text-slate-900 transition-colors underline-offset-8 decoration-2 hover:underline focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-900 focus-visible:ring-offset-4 rounded inline-block">
+                  WhatsApp
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-xs font-medium text-secondary-text hover:text-primary-text transition-colors">
-                  Website Redesign
+                <a href="#" className="text-lg font-bold text-slate-700 hover:text-slate-900 transition-colors underline-offset-8 decoration-2 hover:underline focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-900 focus-visible:ring-offset-4 rounded inline-block">
+                  LinkedIn
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-xs font-medium text-secondary-text hover:text-primary-text transition-colors">
-                  Business Automation
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="text-xs font-medium text-secondary-text hover:text-primary-text transition-colors">
-                  AI Chatbots & Tools
+                <a href="mailto:contact@userxpert.in" className="text-lg font-bold text-slate-700 hover:text-slate-900 transition-colors underline-offset-8 decoration-2 hover:underline focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-900 focus-visible:ring-offset-4 rounded inline-block">
+                  Email
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Company Links (Col 10-12) */}
-          <div className="md:col-span-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-primary-text mb-4">
-              Resources
-            </h4>
-            <ul className="space-y-2.5">
-              <li>
-                <a href="#pricing" className="text-xs font-medium text-secondary-text hover:text-primary-text transition-colors">
-                  Pricing Plans
-                </a>
-              </li>
-              <li>
-                <a href="#faq" className="text-xs font-medium text-secondary-text hover:text-primary-text transition-colors">
-                  Frequently Asked Questions
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://linkedin.com/company/userxpert"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs font-medium text-secondary-text hover:text-primary-text transition-colors"
-                >
-                  <Linkedin className="w-3.5 h-3.5 text-blue-700" aria-hidden="true" />
-                  <span>LinkedIn (userxpert.in)</span>
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
 
-        {/* BOTTOM COPYRIGHT ROW */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[11px] font-medium text-slate-400">
-            © {currentYear} UserXpert. All rights reserved.
-          </p>
-          <div className="flex items-center space-x-6 text-[11px] font-medium text-slate-400">
-            <a href="#" className="hover:text-primary-text transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-primary-text transition-colors">
-              Terms of Service
-            </a>
+        {/* Bottom Bar */}
+        <div className="py-12 border-t-2 border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6 text-lg font-bold text-slate-600">
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 text-center md:text-left">
+            <span>&copy; {currentYear} UserXpert</span>
+            <span className="hidden md:inline text-slate-300">|</span>
+            <span>Designed & Developed by UserXpert</span>
+          </div>
+          <div className="flex items-center gap-8">
+            <Link href="#" className="hover:text-slate-900 transition-colors underline-offset-8 decoration-2 hover:underline focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-900 focus-visible:ring-offset-4 rounded">Privacy Policy</Link>
+            <Link href="#" className="hover:text-slate-900 transition-colors underline-offset-8 decoration-2 hover:underline focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-900 focus-visible:ring-offset-4 rounded">Terms of Service</Link>
           </div>
         </div>
 

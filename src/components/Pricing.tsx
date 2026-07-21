@@ -1,272 +1,210 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, X, ArrowRight, Info } from "lucide-react";
-
-interface PlanFeature {
-  name: string;
-  base: string | boolean;
-  pro: string | boolean;
-  custom: string | boolean;
-  tooltip?: string;
-}
+import { Check, ArrowRight, Info } from "lucide-react";
 
 export default function Pricing() {
   const plans = [
     {
-      name: "Base Plan",
+      name: "Launch",
+      tagline: "For businesses building their first professional online presence.",
       price: "₹15,000",
-      tax: "+ Tax",
-      advance: "50% Advance",
-      delivery: "5-Day Delivery",
-      description: "Best for single-page redesigns and quick online launches.",
-      ctaText: "Get Base Plan Quote",
-      whatsappMessage: "Hi UserXpert, I want to discuss a project under the Base Plan (₹15,000 + Tax).",
+      priceLabel: "Starting at",
+      note: "+ Applicable taxes",
+      benefits: [
+        "Custom landing page or small website",
+        "Mobile-friendly design",
+        "Fast loading performance",
+        "Built with future growth in mind",
+      ],
+      timeline: "Typical delivery: ~1 week",
+      ctaText: "Discuss Launch Plan",
+      whatsappMessage: "Hi UserXpert, I want to discuss the Launch Plan.",
       featured: false,
     },
     {
-      name: "Pro Plan",
+      name: "Grow",
+      tagline: "For businesses ready to invest in a stronger digital presence and better customer experience.",
       price: "₹45,000",
-      tax: "+ Tax",
-      advance: "50% Advance",
-      delivery: "15-Day Delivery",
-      description: "Perfect for fully responsive corporate or business platforms on Framer/WordPress.",
-      ctaText: "Get Pro Plan Quote",
-      whatsappMessage: "Hi UserXpert, I want to discuss a project under the Pro Plan (₹45,000 + Tax).",
+      priceLabel: "Starting at",
+      note: "+ Applicable taxes",
+      benefits: [
+        "Fully custom business website",
+        "UX-focused design",
+        "SEO-ready structure",
+        "Scalable architecture",
+        "Optimized for conversions",
+      ],
+      timeline: "Typical delivery: 2–3 weeks",
+      ctaText: "Discuss Growth Plan",
+      whatsappMessage: "Hi UserXpert, I want to discuss the Growth Plan.",
       featured: true,
+      badge: "MOST POPULAR",
     },
     {
-      name: "Custom Plan",
-      price: "Custom",
-      tax: "",
-      advance: "50% Advance",
-      delivery: "Tailored Duration",
-      description: "For custom platform-independent code, custom dashboards, or complex business tools.",
-      ctaText: "Enquire for Custom Quote",
-      whatsappMessage: "Hi UserXpert, I want to get a custom quote for a custom platform/web application.",
+      name: "Scale",
+      tagline: "For businesses that need custom platforms, internal tools, AI solutions, automation, or advanced digital systems.",
+      price: "Tailored Quote",
+      priceLabel: "",
+      note: "",
+      benefits: [
+        "Business automation",
+        "AI-powered tools",
+        "Internal dashboards",
+        "Custom workflows",
+        "Built around your operations",
+      ],
+      timeline: "Project-based timeline",
+      ctaText: "Book Discovery Call",
+      whatsappMessage: "Hi UserXpert, I want to book a discovery call for the Scale Plan.",
       featured: false,
-    },
-  ];
-
-  const comparisonMatrix: PlanFeature[] = [
-    {
-      name: "Page redesign",
-      base: "Single-page",
-      pro: "Multi-page (Max 5)",
-      custom: "Multi-page (Custom count)",
-    },
-    {
-      name: "Info Architecture & Planning",
-      base: false,
-      pro: true,
-      custom: true,
-    },
-    {
-      name: "Content arrangement",
-      base: true,
-      pro: "Content strategy proposal",
-      custom: "UX Copy + Content strategy proposal",
-    },
-    {
-      name: "Visual Design",
-      base: "Basic (Brand theme & Standard Icons)",
-      pro: "Advanced (Brand theme, Stock Images & Icons)",
-      custom: "Custom (Branding, Images & Standard Icons)",
-    },
-    {
-      name: "HTML/CSS Development",
-      base: false,
-      pro: "Platform dependent (Framer / WP / Webflow, Responsive)",
-      custom: "Custom Code Platform Independent (Next.js/React, Responsive)",
-    },
-    {
-      name: "UX Improvements",
-      base: "Basic",
-      pro: "Better user flow & clarity",
-      custom: "Custom user flow & structure",
-    },
-    {
-      name: "CTA & Conversion Optimisation",
-      base: false,
-      pro: false,
-      custom: "Built-in SEO strategy + Market strategy",
-    },
-    {
-      name: "Accessibility Support",
-      base: false,
-      pro: "Basic interaction + AA standard",
-      custom: "Basic interaction + AAA standard",
-    },
-    {
-      name: "Final Deployment Support",
-      base: false,
-      pro: "Handover Design Doc & Assets",
-      custom: "Design system, Branding guide, Handover Doc & Assets",
-    },
-    {
-      name: "Available Discounts",
-      base: true,
-      pro: true,
-      custom: true,
     },
   ];
 
   return (
-    <section id="pricing" className="py-20 bg-white scroll-mt-20">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-12">
+    <section id="pricing" className="py-32 bg-white scroll-mt-20">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         {/* Section Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16">
-          <span className="text-sm font-semibold text-primary-accent uppercase tracking-wider mb-3 block">
+        <div className="max-w-3xl mx-auto text-center mb-24 md:mb-32">
+          <span className="text-lg font-extrabold text-slate-800 uppercase tracking-widest mb-6 block">
             Pricing
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-primary-text mb-4 text-balance">
-            Transparent Pricing Packages
+          <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-8 tracking-tight text-balance">
+            Choose the Right Starting Point
           </h2>
-          <p className="text-base md:text-lg text-secondary-text font-normal text-balance">
-            No hidden costs. Simple advance parameters. Invest in outcomes, not just hours.
+          <p className="text-xl md:text-2xl text-slate-800 font-medium leading-relaxed text-balance">
+            Every business is different. These plans are designed as starting points. We'll recommend the right approach based on your goals, requirements, and budget.
           </p>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 xl:gap-12 items-stretch mb-16">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative p-8 rounded-card border transition-all duration-300 flex flex-col justify-between ${
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className={`relative p-10 md:p-12 rounded-[2.5rem] border transition-all duration-300 flex flex-col hover:-translate-y-2 hover:shadow-2xl ${
                 plan.featured
-                  ? "bg-white border-primary-accent shadow-lg ring-1 ring-blue-500/20 md:scale-105 z-10"
-                  : "bg-slate-50 border-border-custom hover:border-slate-300 shadow-2xs"
+                  ? "bg-white border-slate-300 shadow-xl ring-1 ring-slate-900/5 order-first lg:order-none"
+                  : "bg-slate-50/50 border-slate-200 hover:border-slate-300 shadow-md"
               }`}
             >
-              {plan.featured && (
-                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary-accent text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
-                  Recommended
+              {plan.badge && (
+                <span className="absolute -top-5 left-12 bg-slate-900 text-white text-sm font-extrabold px-6 py-2.5 rounded-full uppercase tracking-widest shadow-lg">
+                  {plan.badge}
                 </span>
               )}
 
-              <div>
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold text-primary-text">{plan.name}</h3>
-                  <span className="text-xs font-semibold text-secondary-text bg-slate-200/50 px-2.5 py-1.5 rounded-md select-none">
-                    {plan.delivery}
-                  </span>
+              <div className="flex-grow">
+                {/* 1. Business Stage Label */}
+                <h3 className="text-3xl md:text-4xl font-black text-slate-900 mb-6">
+                  {plan.name}
+                </h3>
+                
+                {/* 2. Price */}
+                <div className="mb-10">
+                  {plan.priceLabel && (
+                    <span className="block text-lg font-bold text-slate-800 mb-2">
+                      {plan.priceLabel}
+                    </span>
+                  )}
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-5xl md:text-6xl font-black text-slate-900 tracking-tight">
+                      {plan.price}
+                    </span>
+                  </div>
+                  {plan.note && (
+                    <span className="block text-lg font-bold text-slate-700 mt-3">
+                      {plan.note}
+                    </span>
+                  )}
                 </div>
-                <p className="text-xs text-secondary-text leading-relaxed font-normal mb-6 min-h-[36px] text-pretty">
-                  {plan.description}
+
+                {/* 3. Description / Tagline */}
+                <p className="text-lg md:text-xl text-slate-800 font-medium leading-relaxed mb-12 min-h-[90px]">
+                  {plan.tagline}
                 </p>
 
-                {/* Price Display */}
-                <div className="mb-6 flex items-baseline gap-1 select-none">
-                  <span className="text-4xl font-extrabold text-primary-text tracking-tight tabular-nums">
-                    {plan.price}
-                  </span>
-                  {plan.tax && <span className="text-sm font-semibold text-secondary-text">{plan.tax}</span>}
-                </div>
-
-                <div className="border-t border-slate-200/60 pt-4 mb-6">
-                  <div className="flex items-center gap-2 mb-2 text-xs font-semibold text-slate-500 select-none">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary-accent" aria-hidden="true" />
-                    <span>{plan.advance}</span>
-                  </div>
-                </div>
+                {/* 4. Benefits */}
+                <ul className="space-y-6 md:space-y-8 mb-16 border-t border-slate-200 pt-10">
+                  {plan.benefits.map((benefit, i) => (
+                    <li key={i} className="flex items-start gap-4">
+                      <Check className="w-6 h-6 md:w-7 md:h-7 text-slate-900 shrink-0 mt-0.5" />
+                      <span className="text-lg md:text-xl text-slate-900 font-bold leading-snug">
+                        {benefit}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              {/* Call to Action button */}
+              {/* 5. Timeline */}
+              <div className="mb-10">
+                <span className="inline-flex items-center text-base md:text-lg font-extrabold text-slate-900 bg-transparent border-2 border-slate-300 px-6 py-3 rounded-full hover:bg-slate-50 transition-colors">
+                  {plan.timeline}
+                </span>
+              </div>
+
+              {/* 6. CTA */}
               <a
                 href={`https://wa.me/919962852828?text=${encodeURIComponent(plan.whatsappMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-full inline-flex items-center justify-center py-3 px-4 rounded-button text-sm font-bold transition-all duration-200 text-center ${
+                className={`w-full inline-flex items-center justify-center min-h-[64px] py-4 px-8 rounded-2xl text-xl font-black transition-all duration-300 text-center group focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-offset-2 ${
                   plan.featured
-                    ? "bg-primary-accent text-white hover:bg-primary-accent-hover shadow-sm"
-                    : "bg-white border border-border-custom text-primary-text hover:bg-slate-100"
+                    ? "bg-slate-900 text-white hover:bg-slate-800 shadow-lg hover:shadow-xl focus-visible:ring-slate-900"
+                    : "bg-white border-2 border-slate-200 text-slate-900 hover:bg-slate-50 hover:border-slate-300 shadow-md focus-visible:ring-slate-900"
                 }`}
               >
                 <span>{plan.ctaText}</span>
-                <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
+                <ArrowRight className="w-6 h-6 ml-3 transition-transform group-hover:translate-x-1.5" aria-hidden="true" />
               </a>
             </motion.div>
           ))}
         </div>
 
-        {/* Detailed Comparison Matrix Table */}
-        <div className="mt-16 text-left">
-          <h3 className="text-lg font-bold text-primary-text mb-6 flex items-center gap-2">
-            <Info className="w-5 h-5 text-primary-accent" aria-hidden="true" />
-            <span>Complete Feature Comparison Matrix</span>
-          </h3>
-
-          <div className="w-full overflow-x-auto rounded-xl border border-border-custom shadow-2xs">
-            <table className="w-full border-collapse bg-white text-sm text-left">
-              <thead>
-                <tr className="bg-slate-50 border-b border-border-custom">
-                  <th className="p-4 font-bold text-primary-text w-1/4">Features</th>
-                  <th className="p-4 font-bold text-primary-text w-1/4 text-center">Base Plan</th>
-                  <th className="p-4 font-bold text-primary-text w-1/4 text-center bg-blue-50/20">Pro Plan</th>
-                  <th className="p-4 font-bold text-primary-text w-1/4 text-center">Custom Plan</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100">
-                {comparisonMatrix.map((feature) => (
-                  <tr key={feature.name} className="hover:bg-slate-50/50 transition-colors">
-                    <td className="p-4 font-semibold text-primary-text flex items-center gap-1.5">
-                      {feature.name}
-                    </td>
-
-                    {/* Base Plan Col */}
-                    <td className="p-4 text-center text-secondary-text">
-                      {typeof feature.base === "boolean" ? (
-                        feature.base ? (
-                          <Check className="w-5 h-5 text-success-custom mx-auto" aria-hidden="true" />
-                        ) : (
-                          <X className="w-4 h-4 text-danger-custom mx-auto" aria-hidden="true" />
-                        )
-                      ) : (
-                        <span className="text-xs font-medium text-slate-700 bg-slate-100 px-2 py-1 rounded select-none">
-                          {feature.base}
-                        </span>
-                      )}
-                    </td>
-
-                    {/* Pro Plan Col (Highlighted) */}
-                    <td className="p-4 text-center text-secondary-text bg-blue-50/10">
-                      {typeof feature.pro === "boolean" ? (
-                        feature.pro ? (
-                          <Check className="w-5 h-5 text-success-custom mx-auto" aria-hidden="true" />
-                        ) : (
-                          <X className="w-4 h-4 text-danger-custom mx-auto" aria-hidden="true" />
-                        )
-                      ) : (
-                        <span className="text-xs font-semibold text-primary-accent bg-blue-50 px-2.5 py-1 rounded select-none">
-                          {feature.pro}
-                        </span>
-                      )}
-                    </td>
-
-                    {/* Custom Plan Col */}
-                    <td className="p-4 text-center text-secondary-text">
-                      {typeof feature.custom === "boolean" ? (
-                        feature.custom ? (
-                          <Check className="w-5 h-5 text-success-custom mx-auto" aria-hidden="true" />
-                        ) : (
-                          <X className="w-4 h-4 text-danger-custom mx-auto" aria-hidden="true" />
-                        )
-                      ) : (
-                        <span className="text-xs font-medium text-indigo-700 bg-indigo-50 px-2 py-1 rounded select-none">
-                          {feature.custom}
-                        </span>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        {/* Payment Terms Note */}
+        <div className="max-w-xl mx-auto flex items-start gap-4 p-8 rounded-2xl bg-slate-50 border border-slate-200 mb-24 md:mb-32">
+          <Info className="w-8 h-8 text-slate-900 shrink-0 mt-1" />
+          <div>
+            <h4 className="text-xl font-bold text-slate-900 mb-2">Payment Terms</h4>
+            <p className="text-lg text-slate-800 font-medium">
+              50% to begin.<br />
+              Remaining balance after project completion.
+            </p>
           </div>
         </div>
+
+        {/* Trust Builder */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto text-center bg-slate-50 rounded-[3rem] p-12 md:p-20 border border-slate-200 shadow-sm"
+        >
+          <h3 className="text-3xl md:text-5xl font-black text-slate-900 mb-8 tracking-tight">
+            Not sure which option is right?
+          </h3>
+          <p className="text-xl md:text-2xl text-slate-800 font-medium mb-12 max-w-3xl mx-auto text-balance leading-relaxed">
+            We'll help you choose the solution that actually fits your business—even if it's not the most expensive one.
+          </p>
+          <a 
+            href="https://wa.me/919962852828?text=Hi%20UserXpert%2C%20I'm%20not%20sure%20which%20plan%20is%20right%20for%20me.%20Can%20we%20talk%3F" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center bg-white border-2 border-slate-200 text-slate-900 min-h-[64px] px-10 py-4 rounded-full text-xl font-black hover:bg-slate-100 hover:border-slate-300 transition-all shadow-md group focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-900 focus-visible:ring-offset-4"
+          >
+            <span>Let's Talk</span>
+            <ArrowRight className="w-6 h-6 ml-3 transition-transform group-hover:translate-x-1.5" />
+          </a>
+          <p className="text-lg text-slate-600 font-medium mt-8">
+            No pressure. We'll recommend the option that best fits your business.
+          </p>
+        </motion.div>
       </div>
     </section>
   );
