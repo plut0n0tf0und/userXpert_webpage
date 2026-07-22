@@ -15,38 +15,23 @@ export default function Footer() {
         <div className="py-32 md:py-40 border-b-2 border-slate-200 flex flex-col items-center text-center">
           <div className="max-w-2xl flex flex-col items-center">
             <span className="text-lg font-extrabold uppercase tracking-widest text-slate-800 mb-8 block">
-              Let's Build Something Better
+              Ready when you are.
             </span>
-            <h2 className="text-5xl md:text-6xl font-black tracking-tight text-slate-900 mb-8 text-balance">
-              Let's Talk About Your Business.
+            <h2 className="text-5xl md:text-6xl font-black tracking-tight text-slate-900 mb-12 text-balance">
+              Let's talk about your business.
             </h2>
-            <p className="text-xl md:text-2xl text-slate-800 font-medium leading-relaxed mb-12 text-balance max-w-xl">
-              Whether you need a website, automation, AI tools, or something custom, we'll help you choose the right solution for your business.
-            </p>
             
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-6 w-full sm:w-auto">
+            <div className="flex justify-center w-full">
               <a
-                href="mailto:contact@userxpert.in"
+                href="https://wa.me/919962852828?text=Hi%20UserXpert%2C%20I%20would%20like%20to%20discuss%20a%20project%20for%20my%20business."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center bg-slate-900 text-white min-h-[64px] px-10 py-4 rounded-full text-xl font-black hover:bg-slate-800 transition-all shadow-md group focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-900 focus-visible:ring-offset-4"
               >
-                <span>Let's Talk</span>
+                <span>Start Your Project</span>
                 <ArrowRight className="w-6 h-6 ml-3 transition-transform group-hover:translate-x-1.5" />
               </a>
-              <div className="flex flex-col items-center sm:items-start w-full sm:w-auto">
-                <a
-                  href="https://wa.me/919962852828"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-white border-2 border-slate-200 text-slate-900 min-h-[64px] px-10 py-4 rounded-full text-xl font-black hover:bg-slate-100 transition-all shadow-sm focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-900 focus-visible:ring-offset-4 w-full sm:w-auto"
-                >
-                  WhatsApp
-                </a>
-              </div>
             </div>
-            
-            <p className="text-lg text-slate-700 font-medium mt-8">
-              No pressure. Just a friendly conversation.
-            </p>
           </div>
         </div>
 
@@ -110,10 +95,15 @@ export default function Footer() {
           <div className="lg:col-span-2 flex flex-col space-y-6">
             <h4 className="font-extrabold text-slate-900 text-lg md:text-xl tracking-wide uppercase mb-4">Company</h4>
             <ul className="space-y-5 flex flex-col">
-              {['Pricing', 'FAQ', 'Contact'].map((item) => (
-                <li key={item}>
-                  <Link href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-lg font-bold text-slate-700 hover:text-slate-900 transition-colors underline-offset-8 decoration-2 hover:underline focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-900 focus-visible:ring-offset-4 rounded inline-block">
-                    {item}
+              {[
+                { name: 'Pricing', href: '#pricing' },
+                { name: 'FAQ', href: '#faq' },
+                { name: 'Contact', href: '#contact' },
+                { name: 'Customer Support', href: 'https://userx-form.vercel.app/ticket_form.html' }
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="text-lg font-bold text-slate-700 hover:text-slate-900 transition-colors underline-offset-8 decoration-2 hover:underline focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-900 focus-visible:ring-offset-4 rounded inline-block">
+                    {item.name}
                   </Link>
                 </li>
               ))}
