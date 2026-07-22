@@ -9,8 +9,8 @@ export default function Showcase() {
   const [isMuted, setIsMuted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const togglePlay = (e: React.MouseEvent) => {
-    if ((e.target as HTMLElement).closest('.mute-toggle')) return;
+  const togglePlay = (e?: React.SyntheticEvent) => {
+    if (e && (e.target as HTMLElement).closest('.mute-toggle')) return;
     
     if (videoRef.current) {
       if (isPlaying) {
